@@ -1,0 +1,308 @@
+@import 'typography';
+@import 'variables';
+@import 'reset';
+
+body{
+    font-family: $fraunces;
+}
+
+.header{
+    min-height: 100vh;
+    background-image: url('../images/desktop/image-header.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+    
+    nav ul{
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    nav li{
+        height: 50px;
+    }
+    
+    nav a{
+        height: 100%;
+        padding: 0 30px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: $White;
+        font-family: $Barlow;
+    }
+    
+    nav a:hover{
+        background-color: #f2f2f2;
+    }
+    
+    .logoImg{
+        margin-right: auto;
+    }
+    
+    .sidebar{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .sidebar li{
+        width: 100%;
+    }
+    
+    .sidebar a{
+        width: 100%;
+    }
+    
+    .menu-button{
+        display: none;
+    }
+    
+    @media(max-width: 800px){
+        .hideOnMobile{
+            display: none;
+        }
+        .menu-button{
+            display: block;
+            margin-right: 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+    
+    @media(max-width: 400px){
+        .sidebar{
+            width: 100%;
+        }
+    }
+
+    .heroSection{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        h2{
+            font-family: $Barlow;
+            letter-spacing: 2px;
+            font-size: 2.5rem;
+            color: $White;
+
+            @media(max-width: 429px){
+                font-size: 2rem;
+                letter-spacing: unset;
+            }
+        }
+    }
+
+    @media(max-width:600px){
+        background-image: url('../images/mobile/image-header.jpg');
+    }
+}
+
+/* Items Section */
+.items{
+    .item{
+        display: flex;
+
+        &__descriptionDiv{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            gap: 1rem;
+            text-align: start;
+
+            h2{
+                font-size: 2rem;
+            }
+
+            p{
+                font-family: $Barlow;
+            }
+
+            a{
+                font-family: $fraunces;
+                font-weight: bold;
+                color: $Dark-desaturated-cyan;
+                text-decoration: underline $Yellow 0.2rem;
+            }
+        }
+
+        @media(max-width: 772px){
+            flex-direction: column;
+        }
+
+        @media(max-width: 772px){
+            .items .item:nth-of-type(2){
+                flex-direction: column;
+            }
+        }
+    }
+
+    .item > *{
+        flex-basis: 50%;
+    }
+
+    .item3{
+        .item__div{
+            position: relative;
+        }
+
+        .item__text{
+            position: absolute;
+            bottom: 20%;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%, 50%);
+
+            & > *{
+                margin-top: 1rem;
+            }
+        }
+
+        .design{
+            color: $Dark-desaturated-cyan;
+        }
+
+        .photography{
+            color: $Dark-blue;
+        }
+
+    }
+}
+
+/* Testimonials */
+#testimonials{
+    margin-top: 2rem;
+
+    h2{
+        text-align: center;
+    }
+
+    .testimonials{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding: 0 3rem;
+
+        .testimonial{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+            font-family: $Barlow;
+
+            img{
+                border-radius: 50%;
+                width: 80px;
+                aspect-ratio: 1;
+            }
+
+            &__text{
+                font-weight: 500;
+                text-align: center;
+            }
+
+            div{
+                text-align: center;
+                .testimonial__author{
+                    font-weight: bold;
+                }
+
+                .testimonial__author-role{
+                    font-weight: 300;
+                }
+            }
+
+        }
+
+        @media(min-width: 500px){
+            flex-direction: row;
+        }
+    }
+}
+
+
+/* Footer */
+.footer{
+    background-color: $Dark-moderate-cyan;
+    font-family: $Barlow;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    gap: 2rem;
+
+    &__internal-links{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        &__img{
+            svg{
+                fill: $Dark-desaturated-cyan;
+            }
+        }
+
+        .links{
+            display: flex;
+            gap: 1rem;
+
+            a{
+                color: $Dark-desaturated-cyan;
+            }
+        }
+    }
+
+    &__external-links{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .media > *{
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+    }
+}
+
+/* Images */
+#images{
+    margin-top: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
